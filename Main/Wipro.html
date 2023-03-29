@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>About</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <py-env>
+        - pandas
+        - scikit-learn
+    </py-env>
+</head>
+<style>
+   /*Main heading*/
+   #text1{
+      font-size: 40px;
+      color: black;
+      margin-left: 20px;
+   }
+   /*Opening*/
+   #text2{
+      font-size: 40px;
+      color: #003399;
+      margin-left: 20px;
+   }
+   /*Opening value*/
+   #text3{
+      font-size: 40px;
+      margin-left: 20px;
+   }
+   /*Date: 
+   #text4{
+      font-size: 40px;
+      margin-left: 20px;
+      color: black;
+      margin-left: 20px;
+   }
+   /*Date value
+   #text5{
+      font-size: 40px;
+      margin-left: 20px;
+   }*/
+   /*Today's Predicted closing value*/
+   #text6{
+      font-size: 40px;
+      color: #003399;
+      margin-left: 20px;
+      font-weight: 900;
+   }
+   /*Value*/
+   #text7{
+      color: BLACK;
+      font-size: 40px;
+      margin-left: 40px;
+      height: 100px;
+      width: 100px;
+position: relative;
+  animation-name: example1;
+  animation-duration: 12s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+   }
+   @keyframes example1 {
+  0%   {left:0px; top:0px;}
+  25%  {left:620px; top:0px; font-size: 40px;}
+  50%  {left:620px; top:-80px; font-size: 60px;}
+  75%  {left:620px; top:-80px; font-size: 60px;}
+  100% {left:620px; top:-80px; font-size: 60px;}
+}
+   #today{
+      font-size: 40px;
+      color: black;
+      margin-left: 20px;
+   }
+   .button11 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button11:hover {background-color: #3e8e41}
+
+.button11:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#pointing{
+   margin-left: 760px;
+   position: relative;
+  animation-name: example11;
+  animation-duration: 15s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+   }
+   @keyframes example11 {
+  0%   {left:0px; top:0px;}
+  50%  {left:0px; top:-150px; }
+  100% {left:0px; top:-150px; }
+}
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 80px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+.button111 {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 20px;
+  color: #FFFFFF;
+  padding: 10px;
+  width: 100px;
+  margin-left: 630px;
+  margin-top: -70px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.button111:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button111:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+</style>
+
+<body>
+    <div class="header_section">
+        <div class="container-fluid">
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <!-- <a class="navbar-brand"href="index.html"> -->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                       <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item active">
+                       <a class="nav-link" href="stock.html">Stocks</a>
+                    </li>
+                 </ul>
+                 <form class="form-inline my-2 my-lg-0">
+                    <div class="login_bt">
+                       <ul>
+                          <li><a href="#"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
+                          <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                       </ul>
+                    </div>
+                 </form>
+              </div>
+           </nav>
+        </div>
+     </div>
+     <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3 class="animate-charcter"> WIPRO</h3>
+        </div>
+      </div>
+    </div>
+     <p id="csv"></p>
+     <b><u><label id='today'></label></u></b>
+     <div id="text2"></div>
+     <div id="text3"></div>
+     <div id="text6"></div>
+     <div id="text7"></div>
+     <div id="pypy"></div>
+     <py-script>
+       import pandas as pd
+       import warnings
+       import datetime as dt
+       pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
+       warnings.filterwarnings("ignore")
+       from pyodide.http import open_url
+       url_content=open_url("https://raw.githubusercontent.com/aakhilanvarsadat/stocks/aakhil/Quote-Equity-WIPRO-EQ-29-09-2022-to-29-03-2023%20(1).csv")
+       stock_data=pd.read_csv(url_content)
+       y = stock_data.close
+       y = y.iloc[::-1]
+       stock_features = ['OPEN ']
+       X = stock_data[stock_features]
+       X = X.iloc[::-1]
+       from sklearn.ensemble import GradientBoostingRegressor
+       stock_model = GradientBoostingRegressor()
+       stock_model.fit(X, y)
+       t1="TATA MOTORS"
+       string = t1.strip()
+       closing = stock_data['close']
+       last=[[closing[0]]]
+       predictions = stock_model.predict(last)
+       t2="Previous day's Closing Value"
+       pyscript.write("text2",t2)
+       t3=last
+       t3=t3[0]
+       t3=t3[0]
+       pyscript.write("text3",t3)
+       t6="Today's Predicted closing value"
+       t7=predictions
+       t7=int(t7)
+       pyscript.write("text6",t6)
+       pyscript.write("text7",t7)
+     </py-script>
+    </div>
+    <div id="pointing">
+      <img src="images/point-to-left.png" width="100" height="100" >
+    </div>
+    <button class="button111"><a href="stock.html">Others>></a></button>
+    <div style="height: 50px;"></div>
+       <!-- footer section start -->
+       <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="footer_logo">
+        
+               </div>
+               <div class="social_icon">
+               <ul>
+               <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+               <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+               <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+               </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         function myFunction() {
+        let html=document.getElementById("text7").innerHTML ;
+      }
+      </script>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+ </body>
+ </html>

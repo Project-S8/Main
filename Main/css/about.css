@@ -1,0 +1,26 @@
+h1.intro{
+    text-align: center;
+     display: inline;   
+     position: relative;
+     text-decoration:none;
+    
+     padding: 0 10px;
+    }
+    
+    h1.intro:after{
+      content:"";
+      position: absolute;
+      background-color: black;
+      height : 3px;
+      width: 0;
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s;
+    }
+    
+    h1.intro:hover:after{
+        width:100%;
+    }
+    p{
+        text-align: center;
+    }
